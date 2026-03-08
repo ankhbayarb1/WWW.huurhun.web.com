@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You 🌹</title>
+
+<style>
+
+body{
+margin:0;
+background:black;
+font-family:sans-serif;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+h1{
+color:#ff4d6d;
+font-size:28px;
+text-shadow:0 0 15px #ff4d6d;
+margin-bottom:40px;
+}
+
+.garden{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.rose{
+width:40px;
+height:40px;
+border-radius:50%;
+background:radial-gradient(circle,#ff4d6d,#8b0000);
+box-shadow:0 0 20px #ff4d6d;
+animation:grow 2s infinite alternate;
+}
+
+@keyframes grow{
+from{transform:scale(1);}
+to{transform:scale(1.5);}
+}
+
+button{
+margin-top:40px;
+padding:12px 20px;
+border:none;
+border-radius:20px;
+background:#ff4d6d;
+color:white;
+font-size:16px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1 id="text"></h1>
+
+<div class="garden">
+<div class="rose"></div>
+<div class="rose"></div>
+<div class="rose"></div>
+<div class="rose"></div>
+<div class="rose"></div>
+</div>
+
+<button onclick="playMusic()">🎵 Хөгжим асаах</button>
+
+<audio id="music" loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const message="Бүх өдөр чиний өдөр байгаасай 🌹";
+let i=0;
+
+function typeWriter(){
+if(i<message.length){
+document.getElementById("text").innerHTML+=message.charAt(i);
+i++;
+setTimeout(typeWriter,80);
+}
+}
+
+typeWriter();
+
+function playMusic(){
+document.getElementById("music").play();
+}
+
+</script>
+
+</body>
+</html>
